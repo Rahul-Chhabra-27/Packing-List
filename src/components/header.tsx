@@ -1,4 +1,6 @@
-const Header = ({ items }) => (
+import { HeaderProps } from "../types";
+
+const Header = ({ items }: HeaderProps) => (
   <header id="page-header">
     <h1 className="text-2xl font-bold">Packing List</h1>
     <p id="number-of-items">

@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
+import { ItemProps, Item as ItemType } from '../types';
 
-const Item = ({ item, update, remove }) => {
-  const [editing, setEditing] = useState(false);
+const Item = ({ item, update, remove }: ItemProps) => {
+  const [editing, setEditing] = useState<boolean>(false);
 
   return (
     <li className="flex items-center gap-2">

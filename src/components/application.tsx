@@ -10,21 +10,23 @@ import Header from './header';
 import ItemList from './item-list';
 import MarkAllAsUnpacked from './mark-all-as-unpacked';
 import NewItem from './new-item';
+import { Item } from '../types';
+
 
 const Application = () => {
-  const [items, setItems] = useState(getInitialItems());
-  const [newItemName, setNewItemName] = useState('');
+  const [items, setItems] = useState<Item[]>(getInitialItems());
+  const [newItemName, setNewItemName] = useState<string>('');
 
-  const add = (name) => {
+  const add = (name: string) => {
     const item = createItem(name);
     setItems([...items, item]);
   };
 
-  const update = (id, updates) => {
+  const update = (id: string, updates: Partial<Item>) => {
     setItems(updateItem(items, id, updates));
   };
 
-  const remove = (id) => {
+  const remove = (id: string) => {
     setItems(removeItem(items, id));
   };
 
@@ -32,7 +34,7 @@ const Application = () => {
   const packedItems = filterItems(items, { packed: true });
 
   const markAllAsUnpacked = () => {
-    return setItems(items.map((item) => ({ ...item, packed: false })));
+    setItems(items.map((item) => ({ ...item, packed: false })));
   };
 
   return (
