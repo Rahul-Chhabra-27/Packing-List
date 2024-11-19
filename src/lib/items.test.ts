@@ -1,4 +1,5 @@
 import { filterItems, removeItem, updateItem } from './items';
+import { Item } from '../global';
 
 const items: Item[] = [
   { id: '1', name: 'Phone', packed: true },

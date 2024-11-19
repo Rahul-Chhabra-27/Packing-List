@@ -1,8 +1,9 @@
+import { FC, useState } from 'react';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { ItemProps } from '../global';
 
-const Item = ({ item, update, remove }) => {
-  const [editing, setEditing] = useState(false);
+const Item: FC<ItemProps> = ({ item, update, remove }) => {
+  const [editing, setEditing] = useState<boolean>(false);
 
   return (
     <li className="flex items-center gap-2">

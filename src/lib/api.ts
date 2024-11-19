@@ -1,5 +1,6 @@
 import { getInitialItems } from './items';
 import { sleep } from './slow-down';
+import { Item } from '../global';
 
 const delay = 2000;
 let items = getInitialItems();

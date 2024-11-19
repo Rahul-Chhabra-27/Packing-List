@@ -1,4 +1,5 @@
 import { v4 as id } from 'uuid';
+import { Item } from '../global';
 
 export const createItem = (name: string): Item => {
   return {

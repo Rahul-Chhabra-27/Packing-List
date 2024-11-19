@@ -1,13 +1,15 @@
-const NewItem = ({ newItemName, setNewItemName, addItem }) => {
+import { FC, FormEvent } from 'react';
+import { NewItemProps } from '../global';
+
+const NewItem: FC<NewItemProps> = ({ newItemName, setNewItemName, addItem }) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    addItem(newItemName);
+    setNewItemName('');
+  };
+
   return (
-    <form
-      id="new-item"
-      onSubmit={(e) => {
-        e.preventDefault();
-        addItem(newItemName);
-        setNewItemName('');
-      }}
-    >
+    <form id="new-item" onSubmit={handleSubmit}>
       <label htmlFor="new-item-name" className="font-semibold">
         New Item Name
       </label>

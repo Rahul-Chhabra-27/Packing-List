@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { filterItems } from '../lib/items';
 import { toKebabCase } from '../lib/kebab-case';
 import Item from './item';
+import { EmptyStateProps, ItemListProps } from '../global';
 
-const EmptyState = ({ id, items, filteredItems }) => (
+const EmptyState: FC<EmptyStateProps> = ({ id, items, filteredItems }) => (
   <p id={id} className="text-primary-400">
     (No items.)
   </p>
 );
 
-const ItemList = ({ title = 'Items', items, update, remove }) => {
-  const [filter, setFilter] = useState('');
+const ItemList: FC<ItemListProps> = ({ title = 'Items', items, update, remove }) => {
+  const [filter, setFilter] = useState<string>('');
   const id = toKebabCase(title);
-
   const filteredItems = filterItems(items, { name: filter });
   const isEmpty = !items.length;
 

@@ -1,3 +1,5 @@
+import { Item } from "../global";
+
 type NormalizedState = {
   items: { [key: string]: Item };
   ids: string[];

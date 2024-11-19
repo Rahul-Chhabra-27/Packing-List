@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { createItem, removeItem, updateItem } from './items';
+import { Item } from '../global';
 
 export const add = createAction('items/add', (name: string) => ({
   payload: { name },
